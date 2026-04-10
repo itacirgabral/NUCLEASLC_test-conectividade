@@ -78,7 +78,7 @@ THUMBPRINT256=2AE765129318BC2DB1B2C24546A599F0BDD4612003984224D80C9E595A3B3AE9
 
 Copie os valores para o `.env`.
 
-- **SERIAL_HEX** — número de série do certificado, também visível no **Atlante Viewer - NG**
+- **SERIAL_HEX** — número de série do certificado, também visível no **Atlante Viewer - NG**. A API exige exatamente **32 caracteres hex** — o script `cert-info.ts` já aplica o padding com zeros à esquerda automaticamente (ex: `0000000000000000D8E5EA1256D734AD`)
 - **THUMBPRINT256** — hash SHA-256 do certificado em formato DER, enviado no header JWS (`x5t#S256`) para que a Nuclea identifique qual certificado verificar a assinatura
 
 > O kit da Nuclea vem com um valor pré-preenchido (`8F1BECCC...`). Verifique com a Nuclea se esse valor deve ser mantido ou substituído pelo hash do seu `Certnew.cer`.

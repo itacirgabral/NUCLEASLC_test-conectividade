@@ -22,7 +22,7 @@ if (serialExit !== 0) {
   process.exit(1);
 }
 
-const serialHex = serialOut.trim().split("=")[1] ?? "";
+const serialHex = (serialOut.trim().split("=")[1] ?? "").padStart(32, "0");
 
 // ─── THUMBPRINT256 ────────────────────────────────────────────────────────────
 const derProc = Bun.spawn(
