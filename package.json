@@ -8,7 +8,8 @@
     "test:conectividade": "FORCE_COLOR=1 bun index.ts --verbose | tee -a teste-conectividade.log",
     "gerar-certificado": "bun gerar-certificado.ts",
     "cert-info": "bun cert-info.ts",
-    "gerar-curl": "bun gerar-curl.ts"
+    "gerar-curl": "bun gerar-curl.ts",
+    "eco": "bun eco.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -4,6 +4,8 @@ Ferramenta para validar a conectividade com a API da **Nuclea** no ambiente de h
 
 Realiza autenticação via assinatura JWS com certificado digital (RS256) e chama o endpoint de eco da API para confirmar que a integração está operacional antes de ir para produção.
 
+Para detalhes de implementação e reuso em outros projetos, veja [LIB.md](LIB.md).
+
 ---
 
 ## Pré-requisitos
@@ -12,6 +14,8 @@ Realiza autenticação via assinatura JWS com certificado digital (RS256) e cham
 - [OpenSSL](https://openssl.org) instalado e disponível no PATH — necessário para `bun run gerar-certificado`
 - Certificado digital cadastrado pela Nuclea (veja seção abaixo)
 - ISPB ou CNPJ Base do participante
+
+> **Nota sobre SSL:** O certificado de homologação é autoassinado, por isso `NODE_TLS_REJECT_UNAUTHORIZED=0` é definido nos scripts. Remova em produção quando usar um certificado emitido por uma AC ICP-Brasil.
 
 ---
 
