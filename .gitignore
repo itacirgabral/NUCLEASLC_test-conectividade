@@ -1,0 +1,50 @@
+# dependencies (bun install)
+node_modules
+
+# output
+out
+dist
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+*.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# certificados e chaves gerados pelo gerar-certificado.ts
+Certnew.key
+Certnew.cer
+Certnew.csr
+
+# arquivos originais do kit Nuclea (substituídos pelas versões TypeScript)
+teste-conectividade-credenciadoras.py
+requirements.txt
+"Gerar certificado.BAT"
+gerar_certificado.sh
+"Roteiro Teste de Conectividade API v.1.0.pdf"
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store
+
+# log do teste de conectividade
+teste-conectividade.log
