@@ -10,7 +10,7 @@ Realiza autenticação via assinatura JWS com certificado digital (RS256) e cham
 
 - [Bun](https://bun.sh) instalado
 - [OpenSSL](https://openssl.org) instalado e disponível no PATH — necessário para `bun run gerar-certificado`
-- Certificado digital registrado pela Nuclea no Atlante Viewer (veja seção abaixo)
+- Certificado digital cadastrado pela Nuclea (veja seção abaixo)
 - ISPB ou CNPJ Base do participante
 
 ---
@@ -53,13 +53,20 @@ Preencha as variáveis conforme abaixo:
 
 | Variável        | Descrição                                              |
 |-----------------|--------------------------------------------------------|
-| `BASE_URL`      | URL base da API (padrão: ambiente de homologação)      |
+| `BASE_URL`      | URL base da API — veja ambientes abaixo               |
 | `SERIAL_HEX`    | Número de série do certificado em hexadecimal          |
 | `THUMBPRINT256` | Hash SHA-256 do certificado em maiúsculas              |
 | `EMISSOR`       | ISPB ou CNPJ Base do participante (emissor principal)  |
 | `ADM`           | ISPB ou CNPJ Base do participante (emissor administrado — igual ao `EMISSOR` para conexão direta sem intermediário) |
 
 A chave privada é lida automaticamente do arquivo `Certnew.key`.
+
+#### Ambientes
+
+| Ambiente      | BASE_URL                              |
+|---------------|---------------------------------------|
+| Homologação   | `https://apislcext.api-ativos.com.br` |
+| Produção      | `https://apislc.api-ativos.com.br`    |
 
 #### Obtendo o SERIAL_HEX e o THUMBPRINT256
 
@@ -78,10 +85,8 @@ THUMBPRINT256=2AE765129318BC2DB1B2C24546A599F0BDD4612003984224D80C9E595A3B3AE9
 
 Copie os valores para o `.env`.
 
-- **SERIAL_HEX** — número de série do certificado, também visível no **Atlante Viewer - NG**. A API exige exatamente **32 caracteres hex** — o script `cert-info.ts` já aplica o padding com zeros à esquerda automaticamente (ex: `0000000000000000D8E5EA1256D734AD`)
+- **SERIAL_HEX** — número de série do certificado. A API exige exatamente **32 caracteres hex** — o script `cert-info.ts` já aplica o padding com zeros à esquerda automaticamente (ex: `0000000000000000D8E5EA1256D734AD`)
 - **THUMBPRINT256** — hash SHA-256 do certificado em formato DER, enviado no header JWS (`x5t#S256`) para que a Nuclea identifique qual certificado verificar a assinatura
-
-> O kit da Nuclea vem com um valor pré-preenchido (`8F1BECCC...`). Verifique com a Nuclea se esse valor deve ser mantido ou substituído pelo hash do seu `Certnew.cer`.
 
 ### 4. Executar o teste
 
