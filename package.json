@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "bun index.ts",
-    "test:conectividade": "FORCE_COLOR=1 bun index.ts | tee >(sed 's/\\x1b\\[[0-9;]*m//g' >> teste-conectividade.log)",
+    "start": "bun index.ts --verbose",
+    "test:conectividade": "FORCE_COLOR=1 bun index.ts --verbose | tee -a teste-conectividade.log",
     "gerar-certificado": "bun gerar-certificado.ts",
     "cert-info": "bun cert-info.ts"
   },
